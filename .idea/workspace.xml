@@ -2,21 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="693d66d3-95f3-432c-9140-1f9b64ca6f21" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/cs-4753-project.iml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/.idea/TheProject.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/ShopSmart/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/ShopSmart/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/ShopSmart/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/ShopSmart/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/ShopSmart/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/ShopSmart/views.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/TheProject/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/TheProject/settings.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/TheProject/urls.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/TheProject/wsgi.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/TheProject/manage.py" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/env/bin/activate" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/env/bin/activate.csh" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/env/bin/activate.fish" afterPath="" />
@@ -7629,13 +7614,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/env/local/bin" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/env/local/include" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/env/local/lib" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TheProject/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TheProject/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TheProject/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TheProject/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/TheProject/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="cs-4753-project.iws" />
     <ignored path=".idea/workspace.xml" />
