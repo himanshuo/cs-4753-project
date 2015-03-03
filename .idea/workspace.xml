@@ -7614,10 +7614,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/env/local/bin" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/env/local/include" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/env/local/lib" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShopSmart/db.sqlite3" afterPath="$PROJECT_DIR$/ShopSmart/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShopSmart/ShopSmart/settings.py" afterPath="$PROJECT_DIR$/ShopSmart/ShopSmart/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cs-4753-project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -7765,7 +7761,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="1649" />
-    <option name="y" value="-4" />
+    <option name="y" value="-1804" />
     <option name="width" value="1551" />
     <option name="height" value="904" />
   </component>
@@ -8030,7 +8026,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1649" y="-4" width="1551" height="904" extended-state="6" />
+    <frame x="1649" y="-1804" width="1551" height="904" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />

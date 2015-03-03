@@ -1,0 +1,56 @@
+1)track items
+2)get coupons for items
+3)admin part where user can see info on customer
+4)compare items prices between stores
+	get coupon code to decrease item at our store to match lowest price store
+
+
+
+
+structure of website will thus be:
+
+APP sales
+    MODEL coupon
+        maps to item
+        discount percentage
+        desc of coupon
+        valid through
+    MODEL item
+        price
+        pic
+        desc
+        name
+    VIEW homepage
+        ITEM info
+        ITEM login/register
+        LINK find item
+        LINK get coupons
+        LINK compare items
+    VIEW userinfo
+        ITEM stuff from db
+    VIEW item
+        ITEM stuff from db
+    VIEW coupon
+        ITEM stuff form db
+APP ItemCompare - compares an item to
+    MODEL Item
+        StoreName
+        price,pic, desc, name
+    VIEW compare
+        connects to diff apis
+        searches for item
+        get item price
+        get back all price
+        shows all prices
+        shows lowest price
+    VIEW make_new_coupon
+        makes new coupons for given item that matches lower price
+
+
+APP admin
+    MODEL superuser
+    MODEL user
+        curcoupons
+        saved items
+        frequently viewed items
+
