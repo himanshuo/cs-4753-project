@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+{% load staticfiles %}
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,10 +11,12 @@
 
     <title>ShopSmart</title>
 
+    <!--"{% static "my_app/myexample.jpg" %}"--!>
     <!-- Bootstrap Core CSS -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="static/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
     <!--custom css-->
-    <link href="static/css/shopsmart.css" rel="stylesheet">
+    <link href="{% static "css/shopsmart.css" %}" rel="stylesheet">
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -87,7 +89,7 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <img class="slide-image" src="static/images/logo.jpg" alt="">
+                                    <img class="slide-image" src="{% static "images/logo.jpg" %}" alt="">
                                 </div>
                                 <div class="item">
                                     <img class="slide-image" src="http://placehold.it/800x300" alt="">
@@ -255,7 +257,7 @@
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="static/js/bootstrap.min.js"></script>
+    <script src=""{% static "js/bootstrap.min.js" %}""></script>
 
 
 </body>
