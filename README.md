@@ -7,9 +7,9 @@ cs 4753 project
 <li>open up terminal and go to the directory where you want to create ShopSmart</li>
 <li>make sure you have python3 and pip installed</li>
 <li>pip install virtualenv</li>
-<li>sudo pip install virtualenvwrapper</li>
+<li>virtualenv env</li>
+<li>source env/bin/activate</li>
 <li>git clone https://github.com/himanshuo/cs-4753-project.git</li>
-<li>mkvirtualenv shopsmart -p 'which python3'</li>
 <li>pip install -r requirements.txt</li>
 <li>python manage.py migrate</li>
 <li>python manage.py runserver</li>

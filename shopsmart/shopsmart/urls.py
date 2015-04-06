@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^$', 'home.views.index', name='index'),
+    url(r'^$', 'home.views.landing', name='landing'),
+    url(r'^home/', 'home.views.index', name='index'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
