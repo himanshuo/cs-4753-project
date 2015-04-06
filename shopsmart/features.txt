@@ -1,3 +1,12 @@
+TODO:
+1) banner page that allows you to login via email. ONLY EMAIL. no passwords
+2) next page shows previous items you have looked up (amazon api ASIN product id)
+3) allows you to look up item. We then search amazon for item and generate coupon to match amazon  price.-generate FAKE QR code that is the coupon.
+4) make page look like it is for target (red/white colors/ Bulleye.)
+
+
+
+
 1)track items
 2)get coupons for items
 3)admin part where user can see info on customer
