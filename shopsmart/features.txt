@@ -1,8 +1,16 @@
 TODO:
 1) banner page that allows you to login via email. ONLY EMAIL. no passwords
+    if new user, then popup that asks for tutorial. If not new user, normal.
 2) next page shows previous items you have looked up (amazon api ASIN product id)
+    database of items users looked at
+    show items one by one
 3) allows you to look up item. We then search amazon for item and generate coupon to match amazon  price.-generate FAKE QR code that is the coupon.
+    search bar
+    amazon api get items
 4) make page look like it is for target (red/white colors/ Bulleye.)
+    random color stuff here and there
+    diff pics
+5) make html template
 
 
 
