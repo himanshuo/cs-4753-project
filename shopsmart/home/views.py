@@ -8,9 +8,11 @@ from home.custom_shortcuts import render_with_no_context, render_with_context
 def index(request):
     if request.method == "POST":
         if user_exists(request.POST['email']):
+            print(request.POST['email']+' exists already' )
             return render_with_no_context(request, 'home.html')
         else:
-           User(email=request.POST['email']).save()
+            print('new user')
+            User(email=request.POST['email']).save()
         return render_with_no_context(request, 'home.html')
     else:
         return redirect('landing')
