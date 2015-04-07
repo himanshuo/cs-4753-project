@@ -6,5 +6,5 @@ class User(models.Model):
     email = models.EmailField(null=False, unique=True)
 
 
-def user_exists(self, email):
+def user_exists(email):
     return User.objects.filter(email=email).exists()
