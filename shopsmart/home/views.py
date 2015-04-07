@@ -45,8 +45,15 @@ def landing(request):
 def index(request):
     if request.method == "POST":
         if user_exists(request.POST['email']):
-            print(request.POST['email']+' exists already' )
-            return render_with_no_context(request, 'home.html')
+            print(request.POST['email']+' exists already')
+
+            products=Product.objects.all()
+
+            for p in products:
+                p.rating=range(p.rating)
+            return render_with_context(request, 'home.html', {
+                'products' : products
+            })
         else:
             print('new user')
             User(email=request.POST['email']).save()
