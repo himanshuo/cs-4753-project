@@ -46,18 +46,24 @@ def index(request):
     if request.method == "POST":
         if user_exists(request.POST['email']):
             print(request.POST['email']+' exists already')
-
-            products=Product.objects.all()
+            u = User.objects.get(email=request.POST['email'])
+            products=u.products_seen.all()
+            print(products)
 
             for p in products:
                 p.rating=range(p.rating)
+                p.picture = 'images/'+p.picture
+
             return render_with_context(request, 'home.html', {
                 'products' : products
             })
         else:
             print('new user')
             User(email=request.POST['email']).save()
-        return render_with_no_context(request, 'home.html')
+            return render_with_no_context(request, 'home.html')
+
+
+
     else:
         return redirect('landing')
 

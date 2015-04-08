@@ -2,8 +2,7 @@ from django.db import models
 import re
 # Create your models here.
 
-class User(models.Model):
-    email = models.EmailField(null=False, unique=True)
+
 
 
 
@@ -45,6 +44,8 @@ class Product(models.Model):
 
 
 
-
+class User(models.Model):
+    email = models.EmailField(null=False, unique=True)
+    products_seen = models.ManyToManyField(Product)
 
 

@@ -1,5 +1,5 @@
 {% extends "home_template.html" %}
-
+{% load staticfiles %}
 {% block header %}
     <h2>Items you last looked at: </h2>
 {% endblock %}
@@ -12,7 +12,7 @@
 
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
-                <img src="http://placehold.it/320x150" alt="">
+                <img src="{%  static product.picture %}" alt="">
                 <div class="caption">
                     <h4 class="pull-right">${{ product.price }}</h4>
                     <h4><a href="#">{{ product.title }}</a>
