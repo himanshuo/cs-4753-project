@@ -42,13 +42,15 @@ def landing(request):
 
 
 def products(request):
-    u = User.objects.get(email=request.session['email'])
-    products=u.products_seen.all()
+    #u = User.objects.get(email=request.session['email'])
+    products = Product.objects.all()
     print(products)
 
     for p in products:
         p.rating=range(p.rating)
         p.picture = 'http://localhost:8000/static/images/'+p.picture
+        p.available_coupons = p.coupons.all()
+        print(str(p.available_coupons))
     print("below is product list:")
     print(products)
     return render_with_context(request, 'products.html', {
@@ -70,17 +72,29 @@ def index(request):
             if not request.session.get('email'):
                 request.session["email"] = request.POST['email']
 
+
         else:
             print('new user')
             u = User(email=request.POST['email'])
             u.save()
-            
+
 
             if not request.session.get('email'):
                 request.session["email"] = request.POST['email']
 
 
-        return redirect('products')
+        u = User.objects.get(email=request.session['email'])
+        products = u.products_seen.all()
+
+
+        for p in products:
+            p.rating=range(p.rating)
+            p.picture = 'http://localhost:8000/static/images/'+p.picture
+            p.available_coupons = p.coupons.all()
+            print(str(p.available_coupons))
+        return render_with_context(request, 'home.html', {
+            'products' : products
+        })
 
 
 
