@@ -41,26 +41,47 @@ def landing(request):
         return render_with_no_context(request, 'landing.html')
 
 
+def products(request):
+    u = User.objects.get(email=request.session['email'])
+    products=u.products_seen.all()
+    print(products)
+
+    for p in products:
+        p.rating=range(p.rating)
+        p.picture = 'images/'+p.picture
+    print("below is product list:")
+    print(products)
+    return render_with_context(request, 'products.html', {
+        'products' : products
+    })
+
+
+
+def email(request):
+    return render_with_no_context(request, 'email.html')
+
+
 # Create your views here.
 def index(request):
     if request.method == "POST":
+
         if user_exists(request.POST['email']):
             print(request.POST['email']+' exists already')
-            u = User.objects.get(email=request.POST['email'])
-            products=u.products_seen.all()
-            print(products)
+            if not request.session.get('email'):
+                request.session["email"] = request.POST['email']
 
-            for p in products:
-                p.rating=range(p.rating)
-                p.picture = 'images/'+p.picture
-
-            return render_with_context(request, 'home.html', {
-                'products' : products
-            })
         else:
             print('new user')
-            User(email=request.POST['email']).save()
-            return render_with_no_context(request, 'home.html')
+            u = User(email=request.POST['email'])
+            u.save()
+            p = Product.objects.get(rating=1)
+            u.products_seen.add(p)
+
+            if not request.session.get('email'):
+                request.session["email"] = request.POST['email']
+
+
+        return redirect('products')
 
 
 

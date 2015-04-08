@@ -1,0 +1,38 @@
+{% extends "home_template.html" %}
+
+{% block header %}
+    <h2>List of Products: </h2>
+{% endblock %}
+
+{% block content %}
+
+    {% for product in products %}
+
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+
+                <img src="{%  static product.picture %}" alt="pic">
+
+                <div class="caption">
+                    <h4 class="pull-right">${{ product.price }}</h4>
+                    <h4><a href="#">{{ product.title }}</a>
+                    </h4>
+                    <p>{{ product.description }}</p>
+                </div>
+                <div class="ratings">
+
+                    <p>
+                        {% for i in product.rating %}
+                            <span class="glyphicon glyphicon-star"></span>
+                        {% endfor %}
+
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        {% empty %}
+        Sorry, you havent done anything yet.
+    {% endfor %}
+
+{% endblock %}
