@@ -48,7 +48,7 @@ def products(request):
 
     for p in products:
         p.rating=range(p.rating)
-        p.picture = 'images/'+p.picture
+        p.picture = 'http://localhost:8000/static/images/'+p.picture
     print("below is product list:")
     print(products)
     return render_with_context(request, 'products.html', {
@@ -74,8 +74,7 @@ def index(request):
             print('new user')
             u = User(email=request.POST['email'])
             u.save()
-            p = Product.objects.get(rating=1)
-            u.products_seen.add(p)
+            
 
             if not request.session.get('email'):
                 request.session["email"] = request.POST['email']
