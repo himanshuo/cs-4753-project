@@ -41,6 +41,14 @@ def landing(request):
         return render_with_no_context(request, 'landing.html')
 
 
+def products(request):
+    return render_with_no_context(request, 'products.html')
+
+
+def email(request):
+    return render_with_no_context(request, 'email.html')
+
+
 # Create your views here.
 def index(request):
     if request.method == "POST":
