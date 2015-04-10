@@ -62,8 +62,9 @@ def products(request):
     print("below is product list:")
     print(products)
     return render_with_context(request, 'products.html', {
-        'products' : products
+        'products': products
     })
+
 
 @user_is_logged_in
 def logout(request):
@@ -72,7 +73,6 @@ def logout(request):
     except:
         return redirect('landing')
     return redirect('landing')
-
 
 
 @user_is_logged_in
@@ -88,8 +88,8 @@ def email(request):
     return render_with_context(request, 'email.html', {'email': email_id})
 
 
-
 def index(request):
+    new_user = False
     if request.method == "POST":
         new_user=False
         if 'email' not in request.POST:
@@ -106,8 +106,8 @@ def index(request):
             u.save()
 
             request.session["email"] = email
-
-           
+        return redirect('index')
+    elif request.method=="GET":
         u = User.objects.get(email=request.session['email'])
         products = u.products_seen.all()
 
@@ -117,27 +117,27 @@ def index(request):
             p.available_coupons = p.coupons.all()
             print(str(p.available_coupons))
         return render_with_context(request, 'home.html', {
-            'products' : products,
+            'products': products,
             'new_user': new_user,
-            'user_email': request.POST['email']
+            'user_email': request.session['email']
         })
-
-
-
     else:
-        return redirect('landing')
+        redirect('landing')
+
 
 @user_is_logged_in
 def price_check(request):
-    product_id = request.GET["product_id"]
-    print(product_id)
-    the_product = Product.objects.get(pk=product_id)
+    try:
+        product_id = request.GET["product_id"]
+        print(product_id)
+        the_product = Product.objects.get(pk=product_id)
 
-    the_product.rating = range(the_product.rating)
-    the_product.picture = 'http://localhost:8000/static/images/'+the_product.picture
-    the_product.available_coupons = the_product.coupons.all()
-
-    return render_with_context(request, 'price_check.html', {'product': the_product})
+        the_product.rating = range(the_product.rating)
+        the_product.picture = 'http://localhost:8000/static/images/'+the_product.picture
+        the_product.available_coupons = the_product.coupons.all()
+        return render_with_context(request, 'price_check.html', {'product': the_product})
+    except:
+        return render_with_no_context(request, 'price_check.html')
 
 
 def add_stuff(request):
