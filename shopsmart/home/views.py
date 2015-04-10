@@ -5,6 +5,9 @@ from django.template import RequestContext, loader
 from home.custom_shortcuts import render_with_no_context, render_with_context
 from home.decorators import user_is_logged_in
 # list of mobile User Agents
+
+# code used from mobiForge by ronan
+#####################################
 mobile_uas = [
     'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
     'blaz','brew','cell','cldc','cmd-','dang','doco','eric','hipt','inno',
@@ -32,6 +35,7 @@ def mobile(request):
                 mobile_browser = True
 
     return mobile_browser
+######################################
 
 
 def landing(request):
@@ -103,13 +107,12 @@ def index(request):
 
             request.session["email"] = email
 
-
+           
         u = User.objects.get(email=request.session['email'])
         products = u.products_seen.all()
 
-
         for p in products:
-            p.rating=range(p.rating)
+            p.rating = range(p.rating)
             p.picture = 'http://localhost:8000/static/images/'+p.picture
             p.available_coupons = p.coupons.all()
             print(str(p.available_coupons))
@@ -126,17 +129,18 @@ def index(request):
 
 @user_is_logged_in
 def price_check(request):
-    return render_with_no_context(request, '')
+    product_id = request.GET["product_id"]
+    print(product_id)
+    the_product = Product.objects.get(pk=product_id)
 
+    the_product.rating = range(the_product.rating)
+    the_product.picture = 'http://localhost:8000/static/images/'+the_product.picture
+    the_product.available_coupons = the_product.coupons.all()
 
-
-
-
+    return render_with_context(request, 'price_check.html', {'product': the_product})
 
 
 def add_stuff(request):
-
-
 
     c1 = Coupon(name="50% off")
     c1.save()
