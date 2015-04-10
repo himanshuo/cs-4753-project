@@ -42,13 +42,15 @@ def landing(request):
 
 
 def products(request):
-    u = User.objects.get(email=request.session['email'])
-    products = u.products_seen.all()
+
+    products = Product.objects.all()
     print(products)
 
     for p in products:
         p.rating = range(p.rating)
         p.picture = 'http://localhost:8000/static/images/'+p.picture
+        p.available_coupons = p.coupons.all()
+        print(str(p.available_coupons))
     print("below is product list:")
     print(products)
     return render_with_context(request, 'products.html', {
@@ -71,21 +73,33 @@ def email(request):
 # Create your views here.
 def index(request):
     if request.method == "POST":
-
+        new_user=False
         if user_exists(request.POST['email']):
             print(request.POST['email']+' exists already')
             if not request.session.get('email'):
                 request.session["email"] = request.POST['email']
 
         else:
-            print('new user')
+            new_user |= True # FALSE OR TRUE = TRUE. make new_user true.
             u = User(email=request.POST['email'])
             u.save()
 
             if not request.session.get('email'):
                 request.session["email"] = request.POST['email']
 
-        return redirect('products')
+        u = User.objects.get(email=request.session['email'])
+        products = u.products_seen.all()
+
+        for p in products:
+            p.rating=range(p.rating)
+            p.picture = 'http://localhost:8000/static/images/'+p.picture
+            p.available_coupons = p.coupons.all()
+            print(str(p.available_coupons))
+        return render_with_context(request, 'home.html', {
+            'products' : products,
+            'new_user': new_user,
+            'user_email': request.POST['email']
+        })
 
     else:
         return redirect('landing')

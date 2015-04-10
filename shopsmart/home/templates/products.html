@@ -28,6 +28,14 @@
 
                     </p>
                 </div>
+                <span class="pull-right">
+                    <strong>Coupons:</strong>
+                    {% for coupon in product.available_coupons %}
+                        {{  coupon.name }}
+                        {% empty %}
+                        Sorry, no coupons.
+                        {% endfor %}
+                </span>
             </div>
 
         </div>

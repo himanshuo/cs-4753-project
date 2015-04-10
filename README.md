@@ -2,16 +2,16 @@
 cs 4753 project
 
 
-<h1>Installation Instructions:</h1>
+<h1>Setup Instructions:</h1>
 <ol>
-<li>open up terminal and go to the directory where you want to create ShopSmart</li>
-<li>make sure you have python3 and pip installed</li>
-<li>pip install virtualenv</li>
-<li>virtualenv env</li>
-<li>source env/bin/activate</li>
-<li>git clone https://github.com/himanshuo/cs-4753-project.git</li>
-<li>pip install -r requirements.txt</li>
-<li>python manage.py migrate</li>
-<li>python manage.py runserver</li>
-<li>go to http://localhost:8000 on your browser</li>
+<li>Setup the appropriate virtual environment</li>
+<ul>
+<li> virtualenv -p python3 shopsmart </li>
+<li> source /shopsmart/bin/activate </li>
+<li> pip install Django==1.7.5 </li>
+</ul>
+<li>Create the directory you want ShopSmart to go in</li>
+<li>Clone the github repo</li>
+<li>Run the server on localhost</li>
+<li>View on your browser</li>
 </ol>

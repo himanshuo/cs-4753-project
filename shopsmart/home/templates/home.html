@@ -5,5 +5,41 @@
 {% endblock %}
 
 {% block content %}
+    {% for product in products %}
+
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+
+                <img src="{{ product.picture }}" alt="pic">
+
+                <div class="caption">
+                    <h4 class="pull-right">${{ product.price }}</h4>
+                    <h4><a href="#">{{ product.title }}</a>
+                    </h4>
+                    <p>{{ product.description }}</p>
+                </div>
+                <div class="ratings">
+
+                    <p>
+                        {% for i in product.rating %}
+                            <span class="glyphicon glyphicon-star"></span>
+                        {% endfor %}
+
+                    </p>
+                </div>
+                <span class="pull-right">
+                    <strong>Coupons:</strong>
+                    {% for coupon in product.available_coupons %}
+                        {{  coupon.name }}
+                        {% empty %}
+                        Sorry, no coupons.
+                        {% endfor %}
+                </span>
+            </div>
+
+        </div>
+        {% empty %}
+        Sorry, you havent done anything yet.
+    {% endfor %}
 
 {% endblock %}
