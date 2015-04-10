@@ -42,7 +42,7 @@ def landing(request):
 
 
 def products(request):
-    #u = User.objects.get(email=request.session['email'])
+
     products = Product.objects.all()
     print(products)
 
@@ -60,7 +60,15 @@ def products(request):
 
 
 def email(request):
-    return render_with_no_context(request, 'email.html')
+
+    u = User.objects.get(email=request.session['email'])
+    if request.method == "POST":
+        u.email = request.POST['email']
+        request.session["email"] = request.POST['email']
+        u.save()
+
+    email_id = u.email
+    return render_with_context(request, 'email.html', {'email': email_id})
 
 
 # Create your views here.
@@ -71,7 +79,6 @@ def index(request):
             print(request.POST['email']+' exists already')
             if not request.session.get('email'):
                 request.session["email"] = request.POST['email']
-
 
         else:
             new_user |= True # FALSE OR TRUE = TRUE. make new_user true.

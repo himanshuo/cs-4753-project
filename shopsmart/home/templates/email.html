@@ -6,7 +6,17 @@
 
 {% block content %}
 
-    change your email here
+    Your current email is {{ email }}
+
+
+    <form action= '{% url 'email' %}' method="POST" accept-charset="utf-8"> {% csrf_token %}
+        <div class="input-group">
+            <input type="text" class="form-control" name="email" placeholder="sample@sample.com">
+            <span class="input-group-btn">
+                <button class="btn btn-default"  type="submit">Change Email</button>
+            </span>
+        </div><!-- /input-group -->
+    </form>
 
 
 {% endblock %}
