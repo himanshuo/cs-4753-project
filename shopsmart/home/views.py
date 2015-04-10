@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from home.models import User, user_exists, Product, Coupon
 from django.template import RequestContext, loader
 from home.custom_shortcuts import render_with_no_context, render_with_context
-
+from home.decorators import user_is_logged_in
 # list of mobile User Agents
 mobile_uas = [
     'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
@@ -19,7 +19,7 @@ mobile_uas = [
 
 mobile_ua_hints = ['SymbianOS', 'Opera Mini', 'iPhone']
 
-
+@user_is_logged_in
 def mobile(request):
     mobile_browser = False
     ua = request.META['HTTP_USER_AGENT'].lower()[0:4]
@@ -35,12 +35,16 @@ def mobile(request):
 
 
 def landing(request):
+
+    if 'email' in request.session:
+        return redirect('products')
+
     if mobile(request):
         return render_with_no_context(request, 'landing_m.html')
     else:
         return render_with_no_context(request, 'landing.html')
 
-
+@user_is_logged_in
 def products(request):
 
     products = Product.objects.all()
@@ -57,8 +61,17 @@ def products(request):
         'products' : products
     })
 
+@user_is_logged_in
+def logout(request):
+    try:
+        del request.session['email']
+    except:
+        return redirect('landing')
+    return redirect('landing')
 
 
+
+@user_is_logged_in
 def email(request):
 
     u = User.objects.get(email=request.session['email'])
@@ -71,23 +84,24 @@ def email(request):
     return render_with_context(request, 'email.html', {'email': email_id})
 
 
-# Create your views here.
+
 def index(request):
     if request.method == "POST":
         new_user=False
-        if user_exists(request.POST['email']):
-            print(request.POST['email']+' exists already')
+        if 'email' not in request.POST:
+            redirect('landing')
+        email = request.POST['email']
+        if user_exists(email):
+            print(email+' exists already')
             if not request.session.get('email'):
-                request.session["email"] = request.POST['email']
+                request.session["email"] = email
 
         else:
             new_user |= True # FALSE OR TRUE = TRUE. make new_user true.
-            u = User(email=request.POST['email'])
+            u = User(email=email)
             u.save()
 
-
-            if not request.session.get('email'):
-                request.session["email"] = request.POST['email']
+            request.session["email"] = email
 
 
         u = User.objects.get(email=request.session['email'])
@@ -110,17 +124,18 @@ def index(request):
     else:
         return redirect('landing')
 
-
+@user_is_logged_in
 def price_check(request):
     return render_with_no_context(request, '')
 
 
 
-def user_is_logged_in():
+
 
 
 
 def add_stuff(request):
+
 
 
     c1 = Coupon(name="50% off")

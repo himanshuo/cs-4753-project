@@ -12,6 +12,7 @@ urlpatterns = patterns('',
                        url(r'^email/$', 'home.views.email', name='email'),
                        url(r'^price_check/$', 'home.views.price_check', name='price_check'),
                        url(r'^add_stuff/$', 'home.views.add_stuff', name='add_stuff'),
+                       url(r'^logout/$', 'home.views.logout', name='logout'),
 
     url(r'^admin/', include(admin.site.urls)),
 )+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
