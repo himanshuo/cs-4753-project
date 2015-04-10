@@ -10,6 +10,7 @@ urlpatterns = patterns('',
                        url(r'^home/$', 'home.views.index', name='index'),
                        url(r'^products/$', 'home.views.products', name='products'),
                        url(r'^email/$', 'home.views.email', name='email'),
+                       url(r'^price_check/$', 'home.views.price_check', name='price_check'),
 
     url(r'^admin/', include(admin.site.urls)),
 )+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

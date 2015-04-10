@@ -66,7 +66,7 @@ def email(request):
 # Create your views here.
 def index(request):
     if request.method == "POST":
-
+        new_user=False
         if user_exists(request.POST['email']):
             print(request.POST['email']+' exists already')
             if not request.session.get('email'):
@@ -74,7 +74,7 @@ def index(request):
 
 
         else:
-            print('new user')
+            new_user |= True # FALSE OR TRUE = TRUE. make new_user true.
             u = User(email=request.POST['email'])
             u.save()
 
@@ -93,13 +93,23 @@ def index(request):
             p.available_coupons = p.coupons.all()
             print(str(p.available_coupons))
         return render_with_context(request, 'home.html', {
-            'products' : products
+            'products' : products,
+            'new_user': new_user,
+            'user_email': request.POST['email']
         })
 
 
 
     else:
         return redirect('landing')
+
+
+def price_check(request):
+    return render_with_no_context(request, '')
+
+
+
+def user_is_logged_in():
 
 
 
