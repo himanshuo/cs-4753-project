@@ -3,12 +3,8 @@ import re
 # Create your models here.
 
 
-
-
-
 def user_exists(email):
     return User.objects.filter(email=email).exists()
-
 
 
 class Coupon(models.Model):
@@ -31,8 +27,6 @@ class Coupon(models.Model):
             return original_price-2
 
 
-
-
 class Product(models.Model):
     title = models.CharField(null=False, max_length=100)
     description = models.CharField(null=False, max_length=1000)
@@ -40,8 +34,6 @@ class Product(models.Model):
     rating = models.IntegerField(null=False, )
     price = models.DecimalField(null=False, max_digits=10, decimal_places=2)
     coupons = models.ManyToManyField(Coupon)
-
-
 
 
 class User(models.Model):
