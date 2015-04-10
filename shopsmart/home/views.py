@@ -4,7 +4,8 @@ from home.models import User, user_exists, Product, Coupon
 from django.template import RequestContext, loader
 from home.custom_shortcuts import render_with_no_context, render_with_context
 
-# list of mobile User Agents
+# code used from mobiForge by ronan
+#####################################
 mobile_uas = [
     'w3c ','acs-','alav','alca','amoi','audi','avan','benq','bird','blac',
     'blaz','brew','cell','cldc','cmd-','dang','doco','eric','hipt','inno',
@@ -19,7 +20,6 @@ mobile_uas = [
 
 mobile_ua_hints = ['SymbianOS', 'Opera Mini', 'iPhone']
 
-
 def mobile(request):
     mobile_browser = False
     ua = request.META['HTTP_USER_AGENT'].lower()[0:4]
@@ -32,6 +32,7 @@ def mobile(request):
                 mobile_browser = True
 
     return mobile_browser
+######################################
 
 
 def landing(request):
@@ -56,7 +57,6 @@ def products(request):
     return render_with_context(request, 'products.html', {
         'products' : products
     })
-
 
 
 def email(request):
@@ -85,17 +85,14 @@ def index(request):
             u = User(email=request.POST['email'])
             u.save()
 
-
             if not request.session.get('email'):
                 request.session["email"] = request.POST['email']
-
 
         u = User.objects.get(email=request.session['email'])
         products = u.products_seen.all()
 
-
         for p in products:
-            p.rating=range(p.rating)
+            p.rating = range(p.rating)
             p.picture = 'http://localhost:8000/static/images/'+p.picture
             p.available_coupons = p.coupons.all()
             print(str(p.available_coupons))
@@ -105,23 +102,22 @@ def index(request):
             'user_email': request.POST['email']
         })
 
-
-
     else:
         return redirect('landing')
 
 
 def price_check(request):
-    return render_with_no_context(request, '')
-
+    product_id = request.GET["product_id"]
+    print(product_id)
+    the_product = Product.objects.get(pk=product_id)
+    return render_with_context(request, 'price_check.html', {'product': the_product})
 
 
 def user_is_logged_in():
-
+    pass
 
 
 def add_stuff(request):
-
 
     c1 = Coupon(name="50% off")
     c1.save()

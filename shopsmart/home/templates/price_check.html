@@ -1,12 +1,12 @@
 {% extends "home_template.html" %}
 
 {% block header %}
-    <h2>List of Products: </h2>
+    <h2>Select a product to price check: </h2>
 {% endblock %}
 
 {% block content %}
 
-    {% for product in products %}
+
 
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail">
@@ -15,7 +15,7 @@
 
                 <div class="caption">
                     <h4 class="pull-right">${{ product.price }}</h4>
-                    <h4><a href='{% url 'price_check' %}?product_id={{ product.pk }}'>{{ product.title }}</a>
+                    <h4><a href="http://www.google.com?q={{ product.title }}">{{ product.title }}</a>
                     </h4>
                     <p>{{ product.description }}</p>
                 </div>
@@ -32,15 +32,12 @@
                     <strong>Coupons:</strong>
                     {% for coupon in product.available_coupons %}
                         {{  coupon.name }}
-                        {% empty %}
+                    {% empty %}
                         Sorry, no coupons.
-                        {% endfor %}
+                    {% endfor %}
                 </span>
             </div>
-
         </div>
-        {% empty %}
-        Sorry, you havent done anything yet.
-    {% endfor %}
+
 
 {% endblock %}
