@@ -90,33 +90,34 @@ def email(request):
 
 
 def index(request):
-    new_user = False
     if request.method == "POST":
-        new_user=False
+
         if 'email' not in request.POST:
             redirect('landing')
         email = request.POST['email']
-        if user_exists(email):
-            print(email+' exists already')
-            if not request.session.get('email'):
-                request.session["email"] = email
 
-        else:
-            new_user |= True # FALSE OR TRUE = TRUE. make new_user true.
+        new_user=False
+        if not user_exists(email):
+            new_user = True
             u = User(email=email)
             u.save()
 
-            request.session["email"] = email
-        return redirect('index')
+        request.session["email"] = email
+        return redirect('/home?new_user='+str(new_user))
     elif request.method=="GET":
+
+
         u = User.objects.get(email=request.session['email'])
         products = u.products_seen.all()
+
+        new_user=False
+        if 'new_user' in request.GET:
+            new_user = request.GET['new_user']=="True"
 
         for p in products:
             p.rating = range(p.rating)
             p.picture = 'http://localhost:8000/static/images/'+p.picture
             p.available_coupons = p.coupons.all()
-            print(str(p.available_coupons))
         return render_with_context(request, 'home.html', {
             'products': products,
             'new_user': new_user,
@@ -130,8 +131,13 @@ def index(request):
 def price_check(request):
     try:
         product_id = request.GET["product_id"]
-        print(product_id)
+
         the_product = Product.objects.get(pk=product_id)
+
+        cur_user = User.objects.get(email=request.session['email'])
+        cur_user.products_seen.add(the_product)
+        cur_user.save()
+
 
         the_product.rating = range(the_product.rating)
         the_product.picture = 'http://localhost:8000/static/images/'+the_product.picture

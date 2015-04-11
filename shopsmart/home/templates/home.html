@@ -5,7 +5,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
         {% if new_user %}
-                Welcome to Target {{ user_email }}! Click <a href="http://www.google.com"> here </a> for a tutorial!
+                Welcome to Target {{ user_email }}! Click <a href="#"> here </a> for a tutorial!
         {% else %}
                  Welcome back {{ user_email }}!
         {% endif %}
@@ -26,7 +26,7 @@
 
                 <div class="caption">
                     <h4 class="pull-right">${{ product.price }}</h4>
-                    <h4><a href="http://www.google.com?q={{ product.title }}">{{ product.title }}</a>
+                    <h4><a href="#">{{ product.title }}</a>
                     </h4>
                     <p>{{ product.description }}</p>
                 </div>
@@ -51,7 +51,7 @@
 
         </div>
         {% empty %}
-        Sorry, you havent done anything yet.
+        Visit the product lookup page to view items
     {% endfor %}
 
 {% endblock %}
