@@ -86,6 +86,7 @@ def email(request):
 
     email_id = u.email
     return render_with_context(request, 'email.html', {'email': email_id})
+    #todo: check if user already exists in system
 
 
 def index(request):

@@ -5,7 +5,7 @@
 	<title></title>
 	<meta name="generator" content="LibreOffice 4.2.7.2 (Linux)">
 	<meta name="created" content="0;0">
-	<meta name="changed" content="20150410;195210820326439">
+	<meta name="changed" content="20150410;200632289465913">
 	<style type="text/css">
 	<!--
 		p { color: #000000 }
@@ -14,8 +14,6 @@
 	</style>
 </head>
 <body lang="en-US" text="#000000" dir="ltr" style="background: transparent">
-<p># cs-4753-project cs 4753 project 
-</p>
 <h1>Setup Instructions:</h1>
 <ol>
 	<li><p style="margin-bottom: 0in">Setup the appropriate virtual
@@ -42,11 +40,10 @@
 	<li><p>View on your browser</p>
 	<ul>
 		<li><p><b>IMPORTANT: </b><span style="font-weight: normal">First go
-		to localhost:8080/add_stuff. This </span><span style="font-weight: normal">hidden
-		page </span><span style="font-weight: normal">will upload the
-		products list onto the website. We will eventually configure the
-		admin pages to do this instead.</span></p>
-		<li><p><span style="font-weight: normal">Run localhost:8080</span></p>
+		to localhost:80</span><span style="font-weight: normal">00</span><span style="font-weight: normal">/add_stuff.
+		This hidden page will upload the products list onto the website. We
+		will eventually configure the admin pages to do this instead.</span></p>
+		<li><p style="font-weight: normal">Run localhost:8000</p>
 	</ul>
 </ol>
 <p><br><br>
@@ -96,8 +93,7 @@
 	</ul>
 	<li><p>Email page</p>
 	<ul>
-		<li><p><span style="font-weight: normal">Change the user's email
-		address</span></p>
+		<li><p style="font-weight: normal">Change the user's email address</p>
 	</ul>
 </ol>
 </body>
