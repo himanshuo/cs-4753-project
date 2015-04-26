@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import Decimal
 import re
 # Create your models here.
 
@@ -20,7 +21,7 @@ class Coupon(models.Model):
         if "buy 1 get 1 free" == self.name:
             return original_price
         elif "50% off" == self.name:
-            return original_price*.5
+            return original_price*Decimal(.5)
         elif "1 dollar off" == self.name:
             return original_price-1
         else:
@@ -39,5 +40,3 @@ class Product(models.Model):
 class User(models.Model):
     email = models.EmailField(null=False, unique=True)
     products_seen = models.ManyToManyField(Product)
-
-
