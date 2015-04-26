@@ -2,9 +2,25 @@
 
 {% block header %}
     <h2>Select a product to price check: </h2>
+
+
+
+        <div class="col-md-3 ">
+        <div class="input-group">
+        <input type="text" id="search_text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" id="search_button" type="button">Search!</button>
+         </span>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+
+
 {% endblock %}
 
 {% block content %}
+<div id="search-results"></div>
+    <br/> <br/>
+
 
     {% if product %}
 
@@ -35,9 +51,20 @@
 
                     </p>
                 </div>
+
             </div>
+         <a class="pull-down" href="http://www.amazon.com/s/ref=nb_sb_noss?field-keywords={{ product.title }}" target="_blank"><button type="button" class="btn btn-success">Price Check</button></a>
+
         </div>
+
+
+
+
+
+
     {% endif %}
+
+
 
 
 {% endblock %}

@@ -53,3 +53,4 @@ class Product(models.Model):
 class User(models.Model):
     email = models.EmailField(null=False, unique=True)
     products_seen = models.ManyToManyField(Product)
+    displayed_welcome_message =models.BooleanField(default=False)

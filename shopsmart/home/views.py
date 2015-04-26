@@ -73,7 +73,12 @@ def products(request):
 @user_is_logged_in
 def logout(request):
     try:
+        cur_user = User.objects.get(email=request.session['email'])
+        cur_user.displayed_welcome_message = False
+        cur_user.save()
+
         del request.session['email']
+
     except:
         return redirect('landing')
     return redirect('landing')
@@ -113,6 +118,13 @@ def index(request):
 
         u = User.objects.get(email=request.session['email'])
         products = u.products_seen.all()
+        show_welcome_message=False
+        if not u.displayed_welcome_message:
+            show_welcome_message = True
+            u.displayed_welcome_message = True
+            u.save()
+
+
 
         new_user=False
         if 'new_user' in request.GET:
@@ -122,11 +134,15 @@ def index(request):
             p.rating = range(p.rating)
             p.picture = 'http://localhost:8000/static/images/'+p.picture
             p.available_coupons = p.coupons.all()
+
+
         return render_with_context(request, 'home.html', {
             'products': products,
             'new_user': new_user,
-            'user_email': request.session['email']
+            'user_email': request.session['email'],
+            'show_welcome_message':show_welcome_message
         })
+
     else:
         redirect('landing')
 
