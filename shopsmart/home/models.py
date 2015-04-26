@@ -36,6 +36,19 @@ class Product(models.Model):
     coupons = models.ManyToManyField(Coupon)
 
 
+
+    def serialize(self):
+        return {
+            'title': self.title,
+            'description':self.description,
+            'picture': 'http://localhost:8000/static/images/'+self.picture,
+            'available_coupons':  [c.name for c in self.coupons.all()],
+            'rating':self.rating,
+            'price':str(self.price),
+            'id':self.id
+        }
+
+
 class User(models.Model):
     email = models.EmailField(null=False, unique=True)
     products_seen = models.ManyToManyField(Product)

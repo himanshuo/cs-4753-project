@@ -1,11 +1,29 @@
 {% extends "home_template.html" %}
 
 {% block header %}
-    <h2>List of Products: </h2>
+
+
+     <div class="col-md-3 col-md-offset-9">
+        <div class="input-group">
+        <input type="text" id="search_text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" id="search_button" type="button">Search!</button>
+         </span>
+        </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+
+
+
+
+
+
 {% endblock %}
 
 {% block content %}
 
+    <div id="search-results"></div>
+
+    <h2>Full Catalog</h2>
     {% for product in products %}
 
         <div class="col-sm-4 col-lg-4 col-md-4">
@@ -44,3 +62,4 @@
     {% endfor %}
 
 {% endblock %}
+

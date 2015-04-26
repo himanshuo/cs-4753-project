@@ -4,7 +4,11 @@ from home.models import User, user_exists, Product, Coupon
 from django.template import RequestContext, loader
 from home.custom_shortcuts import render_with_no_context, render_with_context
 from home.decorators import user_is_logged_in
+import json
+
 # list of mobile User Agents
+
+
 
 # code used from mobiForge by ronan
 #####################################
@@ -125,6 +129,29 @@ def index(request):
         })
     else:
         redirect('landing')
+
+
+def search(request):
+
+
+    if request.method == "POST":
+
+        if 'product_name' not in request.POST:
+            return HttpResponse('ERROR', status=400)
+        print(request.POST['product_name'])
+        products = Product.objects.filter(title__icontains=request.POST['product_name'])
+        print(products)
+
+
+        serialized_products = [p.serialize() for p in products]
+
+        return HttpResponse(json.dumps(serialized_products) , content_type ="application/json", status=200)
+    else:
+        return HttpResponse('ERROR',status=400)
+
+
+
+
 
 
 @user_is_logged_in
