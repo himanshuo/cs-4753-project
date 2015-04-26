@@ -25,10 +25,17 @@
                 <img src="{{ product.picture }}" alt="pic">
 
                 <div class="caption">
-                    <h4 class="pull-right">${{ product.price }}</h4>
-                    <h4><a href="#">{{ product.title }}</a>
+                    {%  if product.available_coupons %}
+                        <h4 style="color:red" class="pull-right">${{ product.price | floatformat:2 }}</h4>
+                    {% else %}
+                        <h4 class="pull-right">${{ product.price | floatformat:2 }}</h4>
+                    {% endif %}
+                    <h4><a href='{% url 'price_check' %}?product_id={{ product.pk }}'>{{ product.title }}</a>
                     </h4>
                     <p>{{ product.description }}</p>
+                    {% for coupon in product.available_coupons %}
+                        <span class="label label-warning">{{  coupon.name }}</span>
+                        {% endfor %}
                 </div>
                 <div class="ratings">
 
@@ -39,14 +46,6 @@
 
                     </p>
                 </div>
-                <span class="pull-right">
-                    <strong>Coupons:</strong>
-                    {% for coupon in product.available_coupons %}
-                        {{  coupon.name }}
-                        {% empty %}
-                        Sorry, no coupons.
-                        {% endfor %}
-                </span>
             </div>
 
         </div>

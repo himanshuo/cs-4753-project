@@ -257,4 +257,11 @@ def add_stuff(request):
     p.coupons.add(c2)
     p.save()
 
+    product_list = Product.objects.all()
+    for p in product_list:
+        p.available_coupons = p.coupons.all()
+        if p.available_coupons:
+            p.price = p.available_coupons[0].calculate_price(p.price)
+        p.save()
+
     return HttpResponse("done.")
