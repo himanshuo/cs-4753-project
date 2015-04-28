@@ -66,12 +66,12 @@
 		currently in the store database</p>
 		<li><p style="margin-bottom: 0in">Can click on product name to
 		bring to price matching tool</p>
-		<li><p style="margin-bottom: 0in">Integrates coupons with products to show users what new price is as well as which items have coupons</p>
-		<li><p style="margin-bottom: 0in">Search bar which will return available products that match theh query</p>
+		<li><em><p style="margin-bottom: 0in">Integrates coupons with products to show users what new price is as well as which items have coupons</em></p>
+		<li><em><p style="margin-bottom: 0in">Search bar which will return available products that match theh query</em></p>
 	</ul>
 	<li><p style="margin-bottom: 0in">Price Matching page</p>
 	<ul>
-		<li><p style="margin-bottom: 0in">Links to product page so individual items can be matched here</p>
+		<li><p style="margin-bottom: 0in">Links to product page so individual items can be matched here. Search bar is also involved here.</p>
 		<li><em><p style="margin-bottom: 0in">Price matching APIs had required subscriptions (including Amazon's), so we only demonstrate a workaround to the matching tool with a button that will link you to an Amazon search of the producut name</em></p>
 
 	</ul>
