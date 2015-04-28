@@ -41,8 +41,7 @@
 	<ul>
 		<li><p><b>IMPORTANT: </b><span style="font-weight: normal">First go
 		to localhost:80</span><span style="font-weight: normal">00</span><span style="font-weight: normal">/add_stuff.
-		This hidden page will upload the products list onto the website. We
-		will eventually configure the admin pages to do this instead.</span></p>
+		This hidden page will upload the products list onto the website.</span></p>
 		<li><p style="font-weight: normal">Run localhost:8000</p>
 	</ul>
 </ol>
@@ -73,7 +72,7 @@
 	<li><p style="margin-bottom: 0in">Price Matching page</p>
 	<ul>
 		<li><p style="margin-bottom: 0in">Links to product page so individual items can be matched here</p>
-		<li><p style="margin-bottom: 0in">Price matching APIs had required subscriptions (including Amazon's), so we only demonstrate a workaround to the matching tool with a button that will link you to an Amazon search of the producut name</p>
+		<li><em><p style="margin-bottom: 0in">Price matching APIs had required subscriptions (including Amazon's), so we only demonstrate a workaround to the matching tool with a button that will link you to an Amazon search of the producut name</em></p>
 
 	</ul>
 	<li><p>Email page</p>
