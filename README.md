@@ -53,12 +53,6 @@
 	<li value="1"><p style="margin-bottom: 0in">Landing page</p>
 	<ul>
 		<li><p style="margin-bottom: 0in">Sign up via email address</p>
-		<li><p style="margin-bottom: 0in">Future features:</p>
-		<ul>
-			<li><p style="margin-bottom: 0in">A learn more pop up</p>
-			<li><p style="margin-bottom: 0in">Different mobile vs website
-			appearances</p>
-		</ul>
 	</ul>
 	<li><p style="margin-bottom: 0in">Home page</p>
 	<ul>
@@ -73,23 +67,14 @@
 		currently in the store database</p>
 		<li><p style="margin-bottom: 0in">Can click on product name to
 		bring to price matching tool</p>
-		<li><p style="margin-bottom: 0in">Future features:</p>
-		<ul>
-			<li><p style="margin-bottom: 0in">Better UI to match coupons with
-			products</p>
-			<li><p style="margin-bottom: 0in">A search bar for easier access
-			to certain products</p>
-		</ul>
+		<li><p style="margin-bottom: 0in">Integrates coupons with products to show users what new price is as well as which items have coupons</p>
+		<li><p style="margin-bottom: 0in">Search bar which will return available products that match theh query</p>
 	</ul>
 	<li><p style="margin-bottom: 0in">Price Matching page</p>
 	<ul>
-		<li><p style="margin-bottom: 0in">Future features:</p>
-		<ul>
-			<li><p style="margin-bottom: 0in">Use external API to bring in
-			prices from other sources</p>
-			<li><p style="margin-bottom: 0in">Link to lookup a product from
-			the product page</p>
-		</ul>
+		<li><p style="margin-bottom: 0in">Links to product page so individual items can be matched here</p>
+		<li><p style="margin-bottom: 0in">Price matching APIs had required subscriptions (including Amazon's), so we only demonstrate a workaround to the matching tool with a button that will link you to an Amazon search of the producut name</p>
+
 	</ul>
 	<li><p>Email page</p>
 	<ul>
